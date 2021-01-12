@@ -1,9 +1,9 @@
-package com.riskengine.unsec_pl.rules;
+package com.huyhvq.unsec_pl.rules;
 
 import java.time.Period;
 import java.time.LocalDate;
 
-import com.riskengine.unsec_pl.models.Applicant;
+import com.huyhvq.unsec_pl.models.Applicant;
 
 rule "setting default values on Applicant"
 	dialect "mvel"

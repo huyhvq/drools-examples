@@ -1,8 +1,8 @@
-package com.riskengine.unsec_pl.rules;
+package com.huyhvq.unsec_pl.rules;
 
 import java.lang.Number;
-import com.riskengine.unsec_pl.models.Applicant;
-import com.riskengine.unsec_pl.models.Loan;
+import com.huyhvq.unsec_pl.models.Applicant;
+import com.huyhvq.unsec_pl.models.Loan;
 
 rule "eligibilty-nationality"
 	dialect "mvel"
