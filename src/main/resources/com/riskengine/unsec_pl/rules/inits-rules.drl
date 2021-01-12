@@ -1,0 +1,19 @@
+package com.riskengine.unsec_pl.rules;
+
+import java.time.Period;
+import java.time.LocalDate;
+
+import com.riskengine.unsec_pl.models.Applicant;
+
+rule "setting default values on Applicant"
+	dialect "mvel"
+	ruleflow-group "inits-rules"
+	no-loop true
+	salience 10
+	when
+	    _applicant : Applicant( )
+	then
+        Period age = Period.between(_applicant.getDate_of_birth(), LocalDate.now());
+        modify( _applicant ) { setEligible(true), setAge( age.getYears() )}
+        System.out.println("Rule fired: setting default values on Applicant, age: "+ age.getYears());
+end

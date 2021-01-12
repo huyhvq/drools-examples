@@ -1,0 +1,16 @@
+package com.riskengine.unsec_pl.rules;
+
+import java.lang.Number;
+
+rule "eligibility-too-young-applicant"
+	dialect "mvel"
+	ruleflow-group "eligibility-rules"
+	when
+		There is an applicant
+		- that has an age less than 18 years old
+		There is a loan
+	then
+		That applicant is not eligible
+		That loan is rejected because applicant too young
+		Log rule name
+end

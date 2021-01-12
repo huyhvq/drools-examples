@@ -1,0 +1,18 @@
+package com.riskengine.unsec_pl.rules;
+
+import java.lang.Number;
+import com.riskengine.unsec_pl.models.Loan;
+import com.riskengine.unsec_pl.models.Applicant;
+
+rule "eligibility-too-old-applicant"
+	dialect "mvel"
+	ruleflow-group "eligibility-rules"
+	when
+		There is an applicant
+		- that has an age more than 60 years old
+		There is a loan
+	then
+		That applicant is not eligible
+		That loan is rejected because applicant too old
+		Log rule name
+end

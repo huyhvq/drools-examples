@@ -1,0 +1,17 @@
+package com.riskengine.unsec_pl.rules;
+
+import java.lang.Number;
+import com.riskengine.unsec_pl.models.Applicant;
+import com.riskengine.unsec_pl.models.Loan;
+
+rule "eligibilty-nationality"
+	dialect "mvel"
+	ruleflow-group "eligibility-rules"
+	no-loop true
+	when
+		$a : Applicant( nationality != "VN" )
+		$l : Loan( )
+	then
+		$a.setEligible( false );
+		$l.setApproved( false );
+end
